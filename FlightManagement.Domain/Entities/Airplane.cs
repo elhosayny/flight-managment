@@ -7,7 +7,7 @@ namespace FlightManagement.Domain.Entities
 {
     public class Airplane : BaseEntity
     {
-        public int KeroseneConsumption { get; set; }
-        public int Speed { get; set; }
+        public double KeroseneConsumption { get; set; }
+        public double Speed { get; set; }
     }
 }
