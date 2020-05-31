@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlightManagement.Infrastructure.UnitOfWork
+namespace FlightManagement.Infrastructure.UOW
 {
     public class UnitOfWork : IUnitOfWork
     {

@@ -13,7 +13,7 @@ namespace FlightManagement.Infrastructure
         public static void AddInfrastructure(this IServiceCollection services)
         {
             services.AddTransient<IUnitOfWork, UnitOfWork>();
-            services.AddDbContext<ApplicationDbContext>(options=>options.UseInMemoryDatabase(databaseName:"FlightManagementDb"))
+            services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase(databaseName: "FlightManagementDb"));
         }
     }
 }
