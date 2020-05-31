@@ -8,8 +8,8 @@ namespace FlightManagement.Domain.Interfaces
     public interface IRepository<TEntity> where TEntity : class
     {
         Task<IEnumerable<TEntity>> GetAllAsync();
-        Task<TEntity> GetAsync(TEntity entity);
+        Task<TEntity> GetByIdAsync(int id);
         Task AddAsync(TEntity entity);
-        Task DeleteAsync(TEntity entity);
+        void Delete(TEntity entity);
     }
 }
