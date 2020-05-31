@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManagement.Web", "Fli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManagement.Domain", "FlightManagement.Domain\FlightManagement.Domain.csproj", "{63A0638A-6481-4B07-ADBC-AC7A270E122B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManagement.Infrastructure", "FlightManagement.Infrastructure\FlightManagement.Infrastructure.csproj", "{759E583A-4CF4-49AC-96B1-8C96124E20F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{63A0638A-6481-4B07-ADBC-AC7A270E122B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63A0638A-6481-4B07-ADBC-AC7A270E122B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63A0638A-6481-4B07-ADBC-AC7A270E122B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{759E583A-4CF4-49AC-96B1-8C96124E20F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{759E583A-4CF4-49AC-96B1-8C96124E20F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{759E583A-4CF4-49AC-96B1-8C96124E20F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{759E583A-4CF4-49AC-96B1-8C96124E20F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,14 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace FlightManagement.Domain.Interfaces
 {
     public interface IUnitOfWork
     {
-        IRepository<Flight> FlightRepository { get; set; }
-        IRepository<Airplane> AirplaneRepository { get; set; }
-        IRepository<Airport> AirportRepository { get; set; }
-        void Save();
+        IRepository<Flight> FlightRepository { get;  }
+        IRepository<Airplane> AirplaneRepository { get;  }
+        IRepository<Airport> AirportRepository { get; }
+        Task Save();
     }
 }
