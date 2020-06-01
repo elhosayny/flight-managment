@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29926.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManagement.Web", "FlightManagement.Web\FlightManagement.Web.csproj", "{67FD5901-7A7B-4230-AA46-5B23897E4B8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightManagement.Domain", "FlightManagement.Domain\FlightManagement.Domain.csproj", "{63A0638A-6481-4B07-ADBC-AC7A270E122B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManagement.Domain", "FlightManagement.Domain\FlightManagement.Domain.csproj", "{63A0638A-6481-4B07-ADBC-AC7A270E122B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightManagement.Infrastructure", "FlightManagement.Infrastructure\FlightManagement.Infrastructure.csproj", "{759E583A-4CF4-49AC-96B1-8C96124E20F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManagement.Infrastructure", "FlightManagement.Infrastructure\FlightManagement.Infrastructure.csproj", "{759E583A-4CF4-49AC-96B1-8C96124E20F5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManagement.Web", "FlightManagement.Web\FlightManagement.Web.csproj", "{A631A1BD-5CB0-4E4F-A9BA-39AC2D57A26B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{67FD5901-7A7B-4230-AA46-5B23897E4B8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{67FD5901-7A7B-4230-AA46-5B23897E4B8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{67FD5901-7A7B-4230-AA46-5B23897E4B8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{67FD5901-7A7B-4230-AA46-5B23897E4B8A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{63A0638A-6481-4B07-ADBC-AC7A270E122B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{63A0638A-6481-4B07-ADBC-AC7A270E122B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63A0638A-6481-4B07-ADBC-AC7A270E122B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{759E583A-4CF4-49AC-96B1-8C96124E20F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{759E583A-4CF4-49AC-96B1-8C96124E20F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{759E583A-4CF4-49AC-96B1-8C96124E20F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A631A1BD-5CB0-4E4F-A9BA-39AC2D57A26B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A631A1BD-5CB0-4E4F-A9BA-39AC2D57A26B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A631A1BD-5CB0-4E4F-A9BA-39AC2D57A26B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A631A1BD-5CB0-4E4F-A9BA-39AC2D57A26B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

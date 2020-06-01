@@ -1,0 +1,14 @@
+﻿@model FlightManagement.Web.ModelViews.FlightDetailViewModel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="row" style="margin-top:30px">
+    <div class="col-12">
+        <p>From : @Model.From</p>
+        <p>To : @Model.To</p>
+        <p>Distance : @Model.Distance KM</p>
+        <p>Kerosene Quantity : @Model.KeroseneQuantity L</p>
+    </div>
+</div>
+

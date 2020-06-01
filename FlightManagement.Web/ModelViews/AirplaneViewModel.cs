@@ -1,11 +1,11 @@
-﻿using FlightManagement.Domain.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace FlightManagement.Domain.Entities
+namespace FlightManagement.Web.ModelViews
 {
-    public class Airplane : BaseEntity
+    public class AirplaneViewModel
     {
         public string Name { get; set; }
         public double KeroseneConsumption { get; set; }

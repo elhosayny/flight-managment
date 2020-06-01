@@ -55,7 +55,7 @@ namespace FlightManagement.Infrastructure.UOW
             }
         }
 
-        public async Task Save()
+        public async Task SaveAsync()
         {
             await _context.SaveChangesAsync();
         }

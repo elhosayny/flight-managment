@@ -1,0 +1,39 @@
+﻿@model FlightManagement.Web.ModelViews.FlightViewModel
+ 
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="col-md-3 mb-3">
+        <label>From</label>
+        <select asp-for="FromAirportId" class="custom-select" required>
+            @foreach (var airport in ViewBag.Airports)
+            {
+                <option value="@airport.Id">@airport.Name</option>
+            }
+        </select>
+    </div>
+    <div class="col-md-3 mb-3">
+        <label>To</label>
+        <select asp-for="ToAirportId" class="custom-select" required>
+            @foreach (var airport in ViewBag.Airports)
+            {
+                <option selected value="@airport.Id">@airport.Name</option>
+            }
+        </select>
+    </div>
+    <div class="col-md-3 mb-3">
+        <label>Airplane</label>
+        <select asp-for="AirplaneId" class="custom-select" required>
+            @foreach (var airplane in ViewBag.Airplanes)
+            {
+                <option selected value="@airplane.Id">@airplane.Name</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+

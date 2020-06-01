@@ -9,7 +9,7 @@ namespace FlightManagement.Domain.Helpers
     {
         public static double GetDistance(this Flight flight)
         {
-            const double EARTH_RADUIS = 6371000.0;
+            const double EARTH_RADUIS = 6371.0;
             const double DEGREES_TO_RADIANS = (Math.PI / 180.0);
             
             var fromLatitudeInRadian = flight.From.Latitude * DEGREES_TO_RADIANS; ;
@@ -26,7 +26,7 @@ namespace FlightManagement.Domain.Helpers
             var distance = EARTH_RADUIS * 2.0 *
                   Math.Atan2(Math.Sqrt(a), Math.Sqrt(1.0 - a));
 
-            return distance;
+            return Math.Round(distance,2);
         }
     }
 }

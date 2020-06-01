@@ -1,0 +1,22 @@
+﻿@model FlightManagement.Web.ModelViews.AirplaneViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="col-md-3 mb-3">
+        <label>Name :</label>
+        <input asp-for="Name" type="text" class="form-control" placeholder="ex. Boeing 787">
+    </div>
+    <div class="col-md-3 mb-3">
+        <label>KeroseneConsumption :</label>
+        <input asp-for="KeroseneConsumption" type="number" class="form-control" placeholder="ex. 4 L/K">
+    </div>
+    <div class="col-md-3 mb-3">
+        <label>Speed :</label>
+        <input asp-for="Speed" type="number" class="form-control" placeholder="ex. 800 KM/H">
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
