@@ -1,0 +1,28 @@
+﻿@model IEnumerable<FlightManagement.Domain.Entities.Airport>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+<a asp-action="Create" class="btn btn-primary btn-sm">New Airport</a>
+<table class="table table-hover" style="margin-top:30px">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">From</th>
+            <th scope="col">To</th>
+            <th scope="col">Airplane</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@Html.DisplayFor(modelItem => item.Id)</th>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Latitude)</td>
+                <td>@Html.DisplayFor(modelItem => item.Longitude)</td>
+            </tr>
+        }
+    </tbody>
+</table>
