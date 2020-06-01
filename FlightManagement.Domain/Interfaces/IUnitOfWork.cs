@@ -11,6 +11,6 @@ namespace FlightManagement.Domain.Interfaces
         IRepository<Flight> FlightRepository { get;  }
         IRepository<Airplane> AirplaneRepository { get;  }
         IRepository<Airport> AirportRepository { get; }
-        Task Save();
+        Task SaveAsync();
     }
 }
