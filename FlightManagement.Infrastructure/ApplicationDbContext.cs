@@ -21,13 +21,13 @@ namespace FlightManagement.Infrastructure
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Airport>().HasData(
-                new Airport() { Id = 1, Name = "Aéroport de Béni Mellal",Latitude = 32.3967064,Longitude = -6.3277034 },
-                new Airport() { Id = 2, Name = "Aéroport de Casablanca Mohammed V", Latitude= 32.8383341,Longitude= 32.8383341 }
+                new Airport() { Id = 1, Name = "Aéroport de Béni Mellal",Latitude = 32.339444, Longitude = -6.360833 },
+                new Airport() { Id = 2, Name = "Aéroport de Casablanca Mohammed V", Latitude= 33.5731104, Longitude = -7.5898434 }
             );
             modelBuilder.Entity<Airplane>().HasData(
-                new Airplane() { Id = 1, Name = "Boeing 787",KeroseneConsumption=30,Speed=800 },
-                new Airplane() { Id = 2, Name = "Lockheed SR-71 Blackbird",KeroseneConsumption=40,Speed=900 },
-                new Airplane() { Id = 3, Name = "Cirrus SR22",KeroseneConsumption=100,Speed=1300 }
+                new Airplane() { Id = 1, Name = "Boeing 787",KeroseneConsumption=4,Speed=800 },
+                new Airplane() { Id = 2, Name = "Lockheed SR-71 Blackbird",KeroseneConsumption=3,Speed=900 },
+                new Airplane() { Id = 3, Name = "Cirrus SR22",KeroseneConsumption=6,Speed=1300 }
                 );
         }
     }

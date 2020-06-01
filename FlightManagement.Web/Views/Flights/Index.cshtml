@@ -20,7 +20,7 @@
                 @foreach (var item in Model)
                 {
                 <tr>
-                    <th scope="row"><a href="#">@Html.DisplayFor(modelItem => item.Id)</a></th>
+                    <th scope="row"><a asp-action="Detail" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Id)</a></th>
                     <td>@Html.DisplayFor(modelItem => item.From.Name)</td>
                     <td>@Html.DisplayFor(modelItem => item.To.Name)</td>
                     <td>@Html.DisplayFor(modelItem => item.Airplane.Name)</td>

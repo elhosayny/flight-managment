@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FlightManagement.Domain.Entities;
+using FlightManagement.Domain.Helpers;
 using FlightManagement.Domain.Interfaces;
 using FlightManagement.Infrastructure.UOW;
 using FlightManagement.Web.ModelViews;
@@ -31,6 +32,22 @@ namespace FlightManagement.Web.Controllers
             ViewBag.Airports = airports;
             ViewBag.Airplanes = airplanes;
             return View();
+        }
+
+        public async Task<IActionResult> Detail(int id)
+        {
+            var result = await _unitOfWork.FlightRepository.GetAsync(f=>f.Id == id,includeProperties:"To,From,Airplane");
+            var flight = result.Single();
+
+            var model = new FlightDetailViewModel
+            {
+                From = flight.From.Name,
+                To = flight.To.Name,
+                Distance = flight.GetDistance(),
+                KeroseneQuantity = flight.GetKeroseneQuantity()
+            };
+
+            return View(model);
         }
 
         [HttpPost]
