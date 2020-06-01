@@ -37,17 +37,25 @@ namespace FlightManagement.Web.Controllers
         public async Task<IActionResult> Detail(int id)
         {
             var result = await _unitOfWork.FlightRepository.GetAsync(f=>f.Id == id,includeProperties:"To,From,Airplane");
-            var flight = result.Single();
-
-            var model = new FlightDetailViewModel
+            try
             {
-                From = flight.From.Name,
-                To = flight.To.Name,
-                Distance = flight.GetDistance(),
-                KeroseneQuantity = flight.GetKeroseneQuantity()
-            };
+                var flight = result.SingleOrDefault();
+                if (flight == null) return BadRequest();
 
-            return View(model);
+                var model = new FlightDetailViewModel
+                {
+                    From = flight.From.Name,
+                    To = flight.To.Name,
+                    Distance = flight.GetDistance(),
+                    KeroseneQuantity = flight.GetKeroseneQuantity()
+                };
+                return View(model);
+            }
+            catch(InvalidOperationException exception)
+            {
+                //TODO: Add logging logic here
+                return BadRequest();
+            }
         }
 
         [HttpPost]
