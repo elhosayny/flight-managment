@@ -20,21 +20,12 @@ namespace FlightManagement.Web.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var flights = await _unitOfWork.FlightRepository.GetAsync(includeProperties:"From,To,Airplane");
+            var flights = await _unitOfWork.FlightRepository.GetAsync(includeProperties: "From,To,Airplane");
             return View(flights);
         }
 
         public async Task<IActionResult> Create()
         {
-            _unitOfWork.AirportRepository.Add(new Airport() { Name = "Casablanca" });
-            _unitOfWork.AirportRepository.Add(new Airport() { Name = "Marakech" });
-            _unitOfWork.AirportRepository.Add(new Airport() { Name = "Tetouan" });
-            await _unitOfWork.SaveAsync();
-            _unitOfWork.AirplaneRepository.Add(new Airplane() { Name = "Boeing 787" });
-            _unitOfWork.AirplaneRepository.Add(new Airplane() { Name = "Lockheed SR-71 Blackbird" });
-            _unitOfWork.AirplaneRepository.Add(new Airplane() { Name = "Cirrus SR22" });
-            await _unitOfWork.SaveAsync();
-
             var airports = await _unitOfWork.AirportRepository.GetAllAsync();
             var airplanes = await _unitOfWork.AirplaneRepository.GetAllAsync();
             ViewBag.Airports = airports;

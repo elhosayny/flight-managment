@@ -7,25 +7,23 @@
 <div class="row" style="margin-top:30px">
     <div class="col-12">
         <a asp-action="Create" class="btn btn-primary btn-sm">New Flight</a>
-        <table class="table table-hover">
+        <table class="table table-hover" style="margin-top:30px">
             <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">From</th>
                     <th scope="col">To</th>
                     <th scope="col">Airplane</th>
-                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
                 <tr>
-                    <th scope="row">@Html.DisplayFor(modelItem => item.Id)</th>
+                    <th scope="row"><a href="#">@Html.DisplayFor(modelItem => item.Id)</a></th>
                     <td>@Html.DisplayFor(modelItem => item.From.Name)</td>
                     <td>@Html.DisplayFor(modelItem => item.To.Name)</td>
                     <td>@Html.DisplayFor(modelItem => item.Airplane.Name)</td>
-                    <td></td>
                 </tr>
                 }
             </tbody>
