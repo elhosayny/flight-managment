@@ -1,13 +1,14 @@
 ﻿using FlightManagement.Domain.Entities;
+using FlightManagement.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace FlightManagement.Domain.Helpers
 {
-    public static class DistanceCalculatorExtension
+    public class DistanceCalculator : IDistanceCalculator
     {
-        public static double GetDistance(this Flight flight)
+        public double GetDistance(Flight flight)
         {
             const double EARTH_RADUIS = 6371.0;
             const double DEGREES_TO_RADIANS = (Math.PI / 180.0);

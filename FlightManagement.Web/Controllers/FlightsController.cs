@@ -14,10 +14,14 @@ namespace FlightManagement.Web.Controllers
     public class FlightsController : Controller
     {
         private IUnitOfWork _unitOfWork;
+        private IDistanceCalculator _distanceCalculator;
+        private IKeroseneCalculator _keroseneCalculator;
 
-        public FlightsController(IUnitOfWork unitOfWork)
+        public FlightsController(IUnitOfWork unitOfWork,IDistanceCalculator distanceCalculator,IKeroseneCalculator keroseneCalculator)
         {
             _unitOfWork = unitOfWork;
+            _distanceCalculator = distanceCalculator;
+            _keroseneCalculator = keroseneCalculator;
         }
         public async Task<IActionResult> Index()
         {
@@ -41,13 +45,14 @@ namespace FlightManagement.Web.Controllers
             {
                 var flight = result.SingleOrDefault();
                 if (flight == null) return BadRequest();
-
+                var distance = _distanceCalculator.GetDistance(flight);
+                var keroseneQuantity = _keroseneCalculator.GetKeroseneQuantity(flight, distance);
                 var model = new FlightDetailViewModel
                 {
                     From = flight.From.Name,
                     To = flight.To.Name,
-                    Distance = flight.GetDistance(),
-                    KeroseneQuantity = flight.GetKeroseneQuantity()
+                    Distance = distance,
+                    KeroseneQuantity = keroseneQuantity
                 };
                 return View(model);
             }

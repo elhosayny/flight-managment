@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FlightManagement.Domain.Helpers;
+using FlightManagement.Domain.Interfaces;
 using FlightManagement.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,6 +28,8 @@ namespace FlightManagement.Web
         {
             services.AddControllersWithViews();
             services.AddInfrastructure();
+            services.AddTransient<IDistanceCalculator, DistanceCalculator>();
+            services.AddTransient<IKeroseneCalculator, KeroseneCalculator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
