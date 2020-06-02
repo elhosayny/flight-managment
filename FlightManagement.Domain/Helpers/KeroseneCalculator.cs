@@ -1,16 +1,16 @@
 ﻿using FlightManagement.Domain.Entities;
+using FlightManagement.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace FlightManagement.Domain.Helpers
 {
-    public static class KeroseneCalculatorExtension
+    public class KeroseneCalculator : IKeroseneCalculator
     {
-        public static double GetKeroseneQuantity(this Flight flight)
+        public double GetKeroseneQuantity(Flight flight, double distance)
         {
             // this may seem simple but it give us flixibility to change it later
-            var distance = flight.GetDistance();
 
             return distance * flight.Airplane.KeroseneConsumption;
         }
