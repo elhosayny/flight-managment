@@ -44,6 +44,7 @@ namespace FlightManagement.Web.Controllers
             try
             {
                 var flight = result.SingleOrDefault();
+                //TODO: add this path in unit tests
                 if (flight == null) return BadRequest();
                 var distance = _distanceCalculator.GetDistance(flight);
                 var keroseneQuantity = _keroseneCalculator.GetKeroseneQuantity(flight, distance);
@@ -58,6 +59,7 @@ namespace FlightManagement.Web.Controllers
             }
             catch(InvalidOperationException exception)
             {
+                //TODO: add this path in unit test
                 //TODO: Add logging logic here
                 return BadRequest();
             }

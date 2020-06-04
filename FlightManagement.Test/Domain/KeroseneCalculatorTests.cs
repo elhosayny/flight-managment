@@ -9,7 +9,6 @@ namespace FlightManagement.Test.Domain
 {
     public class KeroseneCalculatorTests
     {
-        // TODO: Refactor the KeroseneCalculator so that we can unit test it without DistanceCalculator
         [Theory]
         [InlineData(81.95, 7, 573.65)] // Casablanca -> Rabat
         [InlineData(380.5, 5, 1902.5)] // Fex -> Marrakech
