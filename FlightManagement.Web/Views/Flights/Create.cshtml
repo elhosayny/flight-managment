@@ -10,30 +10,42 @@
     <div class="col-md-3 mb-3">
         <label>From</label>
         <select asp-for="FromAirportId" class="custom-select" required>
+            <option selected value="">Select the source airport</option>
             @foreach (var airport in ViewBag.Airports)
             {
                 <option value="@airport.Id">@airport.Name</option>
             }
         </select>
+        <span class="text-danger" asp-validation-for="FromAirportId"></span>
     </div>
     <div class="col-md-3 mb-3">
         <label>To</label>
         <select asp-for="ToAirportId" class="custom-select" required>
+            <option selected value="">Select the destination airport</option>
             @foreach (var airport in ViewBag.Airports)
             {
-                <option selected value="@airport.Id">@airport.Name</option>
+                <option value="@airport.Id">@airport.Name</option>
             }
         </select>
+        <span class="text-danger" asp-validation-for="ToAirportId"></span>
     </div>
     <div class="col-md-3 mb-3">
         <label>Airplane</label>
         <select asp-for="AirplaneId" class="custom-select" required>
+            <option selected value="">Select an airplane</option>
             @foreach (var airplane in ViewBag.Airplanes)
             {
-                <option selected value="@airplane.Id">@airplane.Name</option>
+                <option value="@airplane.Id">@airplane.Name</option>
             }
         </select>
+        <span class="text-danger" asp-validation-for="AirplaneId"></span>
     </div>
     <button type="submit" class="btn btn-primary">Save</button>
 </form>
 
+
+@section Scripts{
+
+@{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+} 

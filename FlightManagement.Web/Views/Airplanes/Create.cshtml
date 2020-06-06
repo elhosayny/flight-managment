@@ -6,17 +6,25 @@
 <h2>Create</h2>
 
 <form asp-action="Create">
-    <div class="col-md-3 mb-3">
+    <div class="col-md-3 mb-3 from-group">
         <label>Name :</label>
         <input asp-for="Name" type="text" class="form-control" placeholder="ex. Boeing 787">
+        <span class="text-danger" asp-validation-for="Name"></span>
     </div>
     <div class="col-md-3 mb-3">
         <label>KeroseneConsumption :</label>
         <input asp-for="KeroseneConsumption" type="number" class="form-control" placeholder="ex. 4 L/K">
+        <span class="text-danger" asp-validation-for="KeroseneConsumption"></span>
     </div>
     <div class="col-md-3 mb-3">
         <label>Speed :</label>
         <input asp-for="Speed" type="number" class="form-control" placeholder="ex. 800 KM/H">
+        <span class="text-danger" asp-validation-for="Speed"></span>
     </div>
     <button type="submit" class="btn btn-primary">Save</button>
 </form>
+
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

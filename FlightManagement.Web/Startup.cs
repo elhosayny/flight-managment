@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using FlightManagement.Domain.Helpers;
 using FlightManagement.Domain.Interfaces;
 using FlightManagement.Infrastructure;
+using FlightManagement.Web.Validation;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,7 +29,11 @@ namespace FlightManagement.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddFluentValidation(fv=>fv.RegisterValidatorsFromAssemblyContaining<AirplaneViewModelValidator>());
+            
+            // This disable localization for FluentValidation so all the message will be showen in english
+            ValidatorOptions.LanguageManager.Enabled = false;
+            
             services.AddInfrastructure();
             services.AddTransient<IDistanceCalculator, DistanceCalculator>();
             services.AddTransient<IKeroseneCalculator, KeroseneCalculator>();

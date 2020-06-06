@@ -9,14 +9,21 @@
     <div class="col-md-3 mb-3">
         <label>Name :</label>
         <input asp-for="Name" type="text" class="form-control" placeholder="ex. Aéroport de Casablanca Mohammed V">
+        <span class="text-danger" asp-validation-for="Name"></span>
     </div>
     <div class="col-md-3 mb-3">
         <label>Longitude :</label>
         <input asp-for="Longitude" type="text" class="form-control" placeholder="ex. 33.5731104">
+        <span class="text-danger" asp-validation-for="Longitude"></span>
     </div>
     <div class="col-md-3 mb-3">
         <label>Latitude :</label>
         <input asp-for="Latitude" type="text" class="form-control" placeholder="ex. -7.5898434">
+        <span class="text-danger" asp-validation-for="Latitude"></span>
     </div>
     <button type="submit" class="btn btn-primary">Save</button>
 </form>
+
+@section Scripts{ 
+@{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

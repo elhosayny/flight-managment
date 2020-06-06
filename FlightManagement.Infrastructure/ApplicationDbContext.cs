@@ -20,7 +20,8 @@ namespace FlightManagement.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Airport>().HasData(
+            modelBuilder.Entity<Airport>()
+                .HasData(
                 new Airport() { Id = 1, Name = "Aéroport de Béni Mellal",Latitude = 32.339444, Longitude = -6.360833 },
                 new Airport() { Id = 2, Name = "Aéroport de Casablanca Mohammed V", Latitude= 33.5731104, Longitude = -7.5898434 }
             );

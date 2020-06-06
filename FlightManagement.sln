@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightManagement.Infrastruc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightManagement.Web", "FlightManagement.Web\FlightManagement.Web.csproj", "{A631A1BD-5CB0-4E4F-A9BA-39AC2D57A26B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManagement.Test", "FlightManagement.Test\FlightManagement.Test.csproj", "{4DBD6BC5-14C6-46D3-83CA-694CC0756B53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightManagement.Test", "FlightManagement.Test\FlightManagement.Test.csproj", "{4DBD6BC5-14C6-46D3-83CA-694CC0756B53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManagement.UITest", "FlightManagement.UITest\FlightManagement.UITest.csproj", "{13482DCD-DA12-4C99-A479-73DC4F5797EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{4DBD6BC5-14C6-46D3-83CA-694CC0756B53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DBD6BC5-14C6-46D3-83CA-694CC0756B53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DBD6BC5-14C6-46D3-83CA-694CC0756B53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13482DCD-DA12-4C99-A479-73DC4F5797EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13482DCD-DA12-4C99-A479-73DC4F5797EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13482DCD-DA12-4C99-A479-73DC4F5797EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13482DCD-DA12-4C99-A479-73DC4F5797EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
