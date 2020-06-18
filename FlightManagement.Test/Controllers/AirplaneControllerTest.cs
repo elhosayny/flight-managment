@@ -12,11 +12,11 @@ using Xunit;
 
 namespace FlightManagement.Test.Controllers
 {
-    public class AirplaneControllerTests
+    public class AirplaneControllerTest
     {
         private AirplanesController _airplanesController;
         private Mock<IUnitOfWork> _unitOfWorkMock;
-        public AirplaneControllerTests()
+        public AirplaneControllerTest()
         {
             _unitOfWorkMock = new Mock<IUnitOfWork>();
             _airplanesController = new AirplanesController(_unitOfWorkMock.Object);

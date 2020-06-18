@@ -8,7 +8,7 @@ using Xunit;
 
 namespace FlightManagement.Test.Domain
 {
-    public class DistanceCalculatorTests
+    public class DistanceCalculatorTest
     {
         [Theory]
         [InlineData(-7.5694, 33.5849, -6.8406, 34.0048, 81.95)] // Casablanca -> Rabat

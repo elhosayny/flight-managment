@@ -7,7 +7,7 @@ using Xunit;
 
 namespace FlightManagement.Test.Domain
 {
-    public class KeroseneCalculatorTests
+    public class KeroseneCalculatorTest
     {
         [Theory]
         [InlineData(81.95, 7, 573.65)] // Casablanca -> Rabat

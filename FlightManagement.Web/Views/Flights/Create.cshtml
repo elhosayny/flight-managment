@@ -9,34 +9,22 @@
 <form asp-action="Create">
     <div class="col-md-3 mb-3">
         <label>From</label>
-        <select asp-for="FromAirportId" class="custom-select" required>
+        <select asp-for="FromAirportId" class="custom-select" required asp-items="@(new SelectList(ViewBag.Airports,"Id","Name"))">
             <option selected value="">Select the source airport</option>
-            @foreach (var airport in ViewBag.Airports)
-            {
-                <option value="@airport.Id">@airport.Name</option>
-            }
         </select>
         <span class="text-danger" asp-validation-for="FromAirportId"></span>
     </div>
     <div class="col-md-3 mb-3">
         <label>To</label>
-        <select asp-for="ToAirportId" class="custom-select" required>
+        <select asp-for="ToAirportId" class="custom-select" required asp-items="@(new SelectList(ViewBag.Airports,"Id","Name"))">
             <option selected value="">Select the destination airport</option>
-            @foreach (var airport in ViewBag.Airports)
-            {
-                <option value="@airport.Id">@airport.Name</option>
-            }
         </select>
         <span class="text-danger" asp-validation-for="ToAirportId"></span>
     </div>
     <div class="col-md-3 mb-3">
         <label>Airplane</label>
-        <select asp-for="AirplaneId" class="custom-select" required>
+        <select asp-for="AirplaneId" class="custom-select" required asp-items="@(new SelectList(ViewBag.Airplanes,"Id","Name"))">
             <option selected value="">Select an airplane</option>
-            @foreach (var airplane in ViewBag.Airplanes)
-            {
-                <option value="@airplane.Id">@airplane.Name</option>
-            }
         </select>
         <span class="text-danger" asp-validation-for="AirplaneId"></span>
     </div>

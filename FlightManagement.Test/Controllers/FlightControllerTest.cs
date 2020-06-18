@@ -13,14 +13,14 @@ using Xunit;
 
 namespace FlightManagement.Controllers.Test
 {
-    public class FlightControllerTests
+    public class FlightControllerTest
     {
         private Mock<IUnitOfWork> _unitOfWorkMock;
         private Mock<IDistanceCalculator> _distanceCalculatorMock;
         private Mock<IKeroseneCalculator> _keroseneCalculatorMock;
         private FlightsController _flightsController;
 
-        public FlightControllerTests()
+        public FlightControllerTest()
         {
             _unitOfWorkMock = new Mock<IUnitOfWork>();
             _distanceCalculatorMock = new Mock<IDistanceCalculator>();
