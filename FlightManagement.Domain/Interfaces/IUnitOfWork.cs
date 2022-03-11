@@ -1,13 +1,12 @@
 ﻿using FlightManagement.Domain.Entities;
 using System.Threading.Tasks;
 
-namespace FlightManagement.Domain.Interfaces
+namespace FlightManagement.Domain.Interfaces;
+
+public interface IUnitOfWork
 {
-    public interface IUnitOfWork
-    {
-        IRepository<Flight> FlightRepository { get;  }
-        IRepository<Airplane> AirplaneRepository { get;  }
-        IRepository<Airport> AirportRepository { get; }
-        Task SaveAsync();
-    }
+    IRepository<Flight> FlightRepository { get; }
+    IRepository<Airplane> AirplaneRepository { get; }
+    IRepository<Airport> AirportRepository { get; }
+    Task SaveAsync();
 }

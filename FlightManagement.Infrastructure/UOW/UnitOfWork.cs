@@ -1,63 +1,59 @@
 ﻿using FlightManagement.Domain.Entities;
 using FlightManagement.Domain.Interfaces;
 using FlightManagement.Infrastructure.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace FlightManagement.Infrastructure.UOW
+namespace FlightManagement.Infrastructure.UOW;
+
+public class UnitOfWork : IUnitOfWork
 {
-    public class UnitOfWork : IUnitOfWork
+    private readonly ApplicationDbContext _context;
+
+    private Repository<Flight> _flightRepository;
+    private Repository<Airplane> _airplaneRepository;
+    private Repository<Airport> _airportRepository;
+
+    public UnitOfWork(ApplicationDbContext context)
     {
-        private ApplicationDbContext _context;
+        _context = context;
+    }
 
-        private BaseRepository<Flight> _flightRepository;
-        private BaseRepository<Airplane> _airplaneRepository;
-        private BaseRepository<Airport> _airportRepository;
-
-        public UnitOfWork(ApplicationDbContext context)
+    public IRepository<Flight> FlightRepository
+    {
+        get
         {
-            _context = context;
-        }
-
-        public IRepository<Flight> FlightRepository
-        {
-            get
+            if (_flightRepository == null)
             {
-                if (_flightRepository == null)
-                {
-                    _flightRepository = new BaseRepository<Flight>(_context);
-                }
-                return _flightRepository;
+                _flightRepository = new Repository<Flight>(_context);
             }
+            return _flightRepository;
         }
-        public IRepository<Airplane> AirplaneRepository
+    }
+    public IRepository<Airplane> AirplaneRepository
+    {
+        get
         {
-            get
+            if (_airplaneRepository == null)
             {
-                if (_airplaneRepository == null)
-                {
-                    _airplaneRepository = new BaseRepository<Airplane>(_context);
-                }
-                return _airplaneRepository;
+                _airplaneRepository = new Repository<Airplane>(_context);
             }
+            return _airplaneRepository;
         }
-        public IRepository<Airport> AirportRepository
+    }
+    public IRepository<Airport> AirportRepository
+    {
+        get
         {
-            get
+            if (_airportRepository == null)
             {
-                if (_airportRepository == null)
-                {
-                    _airportRepository = new BaseRepository<Airport>(_context);
-                }
-                return _airportRepository;
+                _airportRepository = new Repository<Airport>(_context);
             }
+            return _airportRepository;
         }
+    }
 
-        public async Task SaveAsync()
-        {
-            await _context.SaveChangesAsync();
-        }
+    public async Task SaveAsync()
+    {
+        await _context.SaveChangesAsync();
     }
 }

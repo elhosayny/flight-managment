@@ -1,7 +1,6 @@
-﻿namespace FlightManagement.Domain.Common
+﻿namespace FlightManagement.Domain.Common;
+
+public abstract class Entity
 {
-    public abstract class Entity
-    {
-        public int Id { get; set; }
-    }
+    public int Id { get; set; }
 }

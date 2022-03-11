@@ -1,6 +1,5 @@
-﻿namespace FlightManagement.Domain.Interfaces
+﻿namespace FlightManagement.Domain.Interfaces;
+
+public interface IAggregate
 {
-    public interface IAggregate
-    {
-    }
 }

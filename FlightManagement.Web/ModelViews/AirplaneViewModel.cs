@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿namespace FlightManagement.Web.ModelViews;
 
-namespace FlightManagement.Web.ModelViews
+public class AirplaneViewModel
 {
-    public class AirplaneViewModel
-    {
-        public string Name { get; set; }
-        public double KeroseneConsumption { get; set; }
-        public double Speed { get; set; }
-    }
+    public string Name { get; set; }
+    public double KeroseneConsumption { get; set; }
+    public double Speed { get; set; }
 }
