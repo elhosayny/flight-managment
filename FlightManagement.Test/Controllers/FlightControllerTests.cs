@@ -16,19 +16,12 @@ namespace FlightManagement.Controllers.Test
     public class FlightControllerTests
     {
         private Mock<IUnitOfWork> _unitOfWorkMock;
-        private Mock<IDistanceCalculator> _distanceCalculatorMock;
-        private Mock<IKeroseneCalculator> _keroseneCalculatorMock;
         private FlightsController _flightsController;
 
         public FlightControllerTests()
         {
             _unitOfWorkMock = new Mock<IUnitOfWork>();
-            _distanceCalculatorMock = new Mock<IDistanceCalculator>();
-            _keroseneCalculatorMock = new Mock<IKeroseneCalculator>();
-
-            _flightsController = new FlightsController(_unitOfWorkMock.Object, 
-                _distanceCalculatorMock.Object, 
-                _keroseneCalculatorMock.Object);
+            _flightsController = new FlightsController(_unitOfWorkMock.Object);
         }
 
         [Fact]
@@ -107,8 +100,6 @@ namespace FlightManagement.Controllers.Test
             Assert.IsType<FlightDetailViewModel>(viewResult.Model);
 
             _unitOfWorkMock.Verify(uof => uof.FlightRepository.GetAsync(It.IsAny<Expression<Func<Flight, bool>>>(), It.IsAny<Func<IQueryable<Flight>, IOrderedQueryable<Flight>>>(), It.IsAny<string>()), Times.Once);
-            _distanceCalculatorMock.Verify(calculator => calculator.GetDistance(It.IsAny<Flight>()));
-            _keroseneCalculatorMock.Verify(calculator => calculator.GetKeroseneQuantity(It.IsAny<Flight>(),It.IsAny<double>()));
         }
     }
 }

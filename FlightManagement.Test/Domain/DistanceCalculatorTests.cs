@@ -1,5 +1,4 @@
 ﻿using FlightManagement.Domain.Entities;
-using FlightManagement.Domain.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -34,9 +33,7 @@ namespace FlightManagement.Test.Domain
                 To = airport2
             };
 
-            var distanceCalculator = new DistanceCalculator();
-
-            var actual = distanceCalculator.GetDistance(flight);
+            var actual = flight.GetDistance();
 
             Assert.Equal(expected, actual);
         }
