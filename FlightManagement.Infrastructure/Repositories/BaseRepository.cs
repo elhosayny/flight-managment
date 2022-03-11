@@ -4,27 +4,26 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace FlightManagement.Infrastructure.Repositories
 {
-    public class BaseRepository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class BaseRepository<T> : IRepository<T> where T : class, IAggregate
     {
         protected ApplicationDbContext _context;
-        protected DbSet<TEntity> _dbSet;
+        protected DbSet<T> _dbSet;
 
         public BaseRepository(ApplicationDbContext context)
         {
             _context = context;
-            _dbSet = _context.Set<TEntity>();
+            _dbSet = _context.Set<T>();
         }
-        public void Add(TEntity entity)
+        public void Add(T entity)
         {
             _dbSet.Add(entity);
         }
 
-        public void Delete(TEntity entity)
+        public void Delete(T entity)
         {
             if(_context.Entry(entity).State == EntityState.Detached)
             {
@@ -34,12 +33,12 @@ namespace FlightManagement.Infrastructure.Repositories
             _dbSet.Remove(entity);
         }
 
-        public async Task<IEnumerable<TEntity>> GetAsync(
-            Expression<Func<TEntity, bool>> filter = null,
-            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+        public async Task<IEnumerable<T>> GetAsync(
+            Expression<Func<T, bool>> filter = null,
+            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
             string includeProperties = "")
         {
-            IQueryable<TEntity> query = _dbSet;
+            IQueryable<T> query = _dbSet;
 
             if (filter != null)
             {
@@ -62,12 +61,12 @@ namespace FlightManagement.Infrastructure.Repositories
             }
         }
 
-        public async Task<IEnumerable<TEntity>> GetAllAsync()
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _dbSet.ToListAsync();
         }
 
-        public async Task<TEntity> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
             return await _dbSet.FindAsync(id);
         }

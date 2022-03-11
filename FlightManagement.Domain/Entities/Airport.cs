@@ -1,11 +1,9 @@
 ﻿using FlightManagement.Domain.Common;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using FlightManagement.Domain.Interfaces;
 
 namespace FlightManagement.Domain.Entities
 {
-    public class Airport : BaseEntity
+    public class Airport : Entity, IAggregate
     {
         public string Name { get; set; }
         public double Latitude { get; set; }

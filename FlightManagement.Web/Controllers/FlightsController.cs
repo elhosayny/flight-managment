@@ -1,27 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using FlightManagement.Domain.Entities;
-using FlightManagement.Domain.Helpers;
+﻿using FlightManagement.Domain.Entities;
 using FlightManagement.Domain.Interfaces;
-using FlightManagement.Infrastructure.UOW;
 using FlightManagement.Web.ModelViews;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace FlightManagement.Web.Controllers
 {
     public class FlightsController : Controller
     {
         private IUnitOfWork _unitOfWork;
-        private IDistanceCalculator _distanceCalculator;
-        private IKeroseneCalculator _keroseneCalculator;
 
-        public FlightsController(IUnitOfWork unitOfWork,IDistanceCalculator distanceCalculator,IKeroseneCalculator keroseneCalculator)
+        public FlightsController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            _distanceCalculator = distanceCalculator;
-            _keroseneCalculator = keroseneCalculator;
         }
         public async Task<IActionResult> Index()
         {
@@ -44,10 +37,14 @@ namespace FlightManagement.Web.Controllers
             try
             {
                 var flight = result.SingleOrDefault();
-                //TODO: add this path in unit tests
-                if (flight == null) return BadRequest();
-                var distance = _distanceCalculator.GetDistance(flight);
-                var keroseneQuantity = _keroseneCalculator.GetKeroseneQuantity(flight, distance);
+
+                if (flight == null)
+                {
+                    return BadRequest();
+                }
+
+                var distance = flight.GetDistance();
+                var keroseneQuantity = flight.GetKeroseneQuantity();
                 var model = new FlightDetailViewModel
                 {
                     From = flight.From.Name,
@@ -55,12 +52,11 @@ namespace FlightManagement.Web.Controllers
                     Distance = distance,
                     KeroseneQuantity = keroseneQuantity
                 };
+
                 return View(model);
             }
-            catch(InvalidOperationException exception)
+            catch (InvalidOperationException)
             {
-                //TODO: add this path in unit test
-                //TODO: Add logging logic here
                 return BadRequest();
             }
         }
